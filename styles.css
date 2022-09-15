@@ -1,0 +1,155 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+ul{
+    list-style: none;
+}
+
+body {
+    background-image: url(./assets/bg.jpg); 
+    background-position: top center;
+    background-size: 100% auto;   
+    background-repeat: no-repeat;
+    background-color: #121214; 
+}
+body * {
+    font-family: 'Inter', sans-serif;
+    line-height: 160%;
+}
+/*main * {
+    border: 1px solid red;
+}*/
+header {
+    /*text-align: center; alinha o TEXTO ao centro, diferente do que foi 
+    feito com o main (espaçamento margem, bordas...
+    ---> APENAS QUANDO TEM PROPRIENDADE DE TEXTO)*/
+    /*margin-top: 32px; OU:*/
+    padding-top: 32px;
+    height: calc(120px + 32px);
+
+}
+header div{
+    width: 120px;
+    margin: auto;/*DIV NAO TEM PROPRIEDADE DE TEXTO, NAO RESPEITA O text-align: center; DO HEADER(PAI)
+    PRECISA DISSO PRA ALINHAR AO CENTRO(OBEDECER AO text-align: center;DO HEADER -> SE NAO TIVER, RESPEITA 
+    O ALINHAMENTO DO PAI DO PAI E ASSIM POR DIANTE)*/
+    background-image:  linear-gradient(90deg, #9572FC 0%, #43E7AD 50.52%, #E2D45C 100%);
+    border-radius: 50%;
+    display: flex;
+    padding: 4px;
+    transition: transform .3s;/*ação de chamar o aumentar por 0.3s*/
+}
+header div:hover{
+    transform: scale(1.1);/*ação de aumentar um em 1.1*/
+}
+header img{
+    width: 100%;
+    border-radius: 50%;
+}
+
+main{
+    max-width: 580px;
+    width: 90%;
+    margin: auto;
+    
+    display: grid;
+    gap: 24px;
+
+    margin-top: 32px;
+}
+
+section{
+    /*background: linear-gradient(0deg, #2A2634, #2A2634),
+    linear-gradient(90deg, #9572FC 0%, #43E7AD 50.52%, #E2D45C 100%);*/
+    color: white;
+    background-image:  linear-gradient(90deg, #9572FC 0%, #43E7AD 50.52%, #E2D45C 100%);
+    padding-top: 4px;
+    border-radius: 10px;
+}
+section div{
+    background-color: #2A2634;
+    padding: 32px;
+    padding-top: 24px;
+    border-radius: 8px;
+}
+section h2{
+    letter-spacing: -0.47px;
+}
+section p{    
+    letter-spacing: -0.18px;
+    color: #A1A1AA;
+}
+
+section ul{
+    display: flex;/*ELEMENTOS LADO A LADO HORIZONTALMENTE*/
+    flex-wrap: wrap;/*ISSO AJUSTA OS ALEMENTOS DA LISTA NA TELA DENTRO DA SECTION->DIV->UL*/
+    gap: 16px;
+    margin-top: 24px;
+}
+section ul li{
+    transition: transform .3s;
+}
+section ul li:hover{
+    transform: scale(1.1);
+}
+/*
+li{
+   border: 1px solid red; 
+}*/
+.games-list img{
+    width: 90px;
+    border-radius: 8px;
+}
+.channel-list img{
+    width: 70px;
+    border-radius: 50%;
+    border: 1px solid #443E54;
+}
+
+
+/*--------------------ANIMAÇÃO !!!!----------------------*/
+header div{/*isso poderia estar al em cima(ja existe um header div)*/
+    /*animation: fromTop .7s [delay pode ficar aqui] backwards (backwards puxa o inicio da animação antes de puxar a animação);*/
+    /*animation-delay: 1s;*/
+    animation: fromTop .7s .1s backwards
+} 
+main section{
+    animation: fromBottom .7s backwards;
+}
+main section:nth-child(1){
+    animation-delay: 0s;
+}
+main section:nth-child(2){
+    animation-delay: .4s;
+}
+main section:nth-child(3){
+    animation-delay: .8s;
+}
+
+@keyframes fromTop { /*chaves de cima para baixo*/
+    from{/*de onde (inicio) 0%*/
+        opacity: 0;
+        transform: translateY(-30px);
+    }
+    to {/*para onde (final) 100%*/
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fromBottom {
+    from{/*de onde (inicio) 0%*/
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {/*para onde (final) 100%*/
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+
